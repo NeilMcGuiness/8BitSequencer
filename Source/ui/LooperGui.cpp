@@ -24,12 +24,6 @@ LooperGui::LooperGui(Looper& looper_) : looper (looper_)
     addAndMakeVisible (&recordButton);
     recordButton.addListener (this);
     
-    saveButton.setButtonText ("Save");
-    saveButton.setConnectedEdges(Button::ConnectedOnLeft | Button::ConnectedOnRight);
-    saveButton.setColour(TextButton::buttonColourId, Colours::darkred);
-    saveButton.setColour(TextButton::buttonOnColourId, Colours::red);
-    addAndMakeVisible (&saveButton);
-    saveButton.addListener (this);
 }
 
 void LooperGui::buttonClicked (Button* button)
@@ -49,15 +43,10 @@ void LooperGui::buttonClicked (Button* button)
         recordButton.setToggleState (looper.getRecordState(), dontSendNotification);
 
     }
-    else if (button == &saveButton)
-    {
-        looper.load();
-    }
 }
 
 void LooperGui::resized()
 {
     playButton.setBounds (0, 0, getWidth()/2, getHeight()/2);
     recordButton.setBounds (playButton.getBounds().translated(getWidth()/2, 0));
-    saveButton.setBounds(playButton.getBounds().translated(0, getHeight()/2));
 }

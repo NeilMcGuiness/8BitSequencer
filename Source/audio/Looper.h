@@ -52,9 +52,7 @@ public:
      Processes the audio sample by sample.
      */
     float processSample (float input);
-    
-    void save();
-    void load();
+
 private:  
     //Shared data
     Atomic<int> recordState;
@@ -63,10 +61,7 @@ private:
     //Audio data
     static const int bufferSize = 88200; //constant
     unsigned int bufferPosition;
-    //float audioSampleBuffer[bufferSize];
-    
-    AudioSampleBuffer audioSampleBuffer;
-    
+    float audioSampleBuffer[bufferSize];
 };
 
 #endif /* H_Looper */
