@@ -10,7 +10,9 @@
 
 
 //==============================================================================
-MainComponent::MainComponent (Audio& audio_) : audio (audio_), looperGui (audio_.getLooper())
+MainComponent::MainComponent (Audio& audio_)
+ :  audio (audio_),
+    looperGui (audio_.getLooper())
 {
     setSize (500, 400);
     addAndMakeVisible (looperGui);

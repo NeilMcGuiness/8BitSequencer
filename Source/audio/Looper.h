@@ -36,7 +36,7 @@ public:
     /**
      Gets the current playback state of the looper
      */
-    bool getPlayState () const;
+    bool getPlayState() const;
     
     /**
      Sets/unsets the record state of the looper
@@ -46,22 +46,26 @@ public:
     /**
      Gets the current record state of the looper
      */
-    bool getRecordState () const;
+    bool getRecordState() const;
     
     /**
      Processes the audio sample by sample.
      */
     float processSample (float input);
     
+    void save();
+    void load();
 private:  
     //Shared data
-    bool recordState;        //these are atomics which means they can be read/written
-    bool playState;          //in different threads without a CriticalSection
+    Atomic<int> recordState;
+    Atomic<int> playState;
     
     //Audio data
     static const int bufferSize = 88200; //constant
     unsigned int bufferPosition;
-    float audioSampleBuffer[bufferSize];
+    //float audioSampleBuffer[bufferSize];
+    
+    AudioSampleBuffer audioSampleBuffer;
     
 };
 

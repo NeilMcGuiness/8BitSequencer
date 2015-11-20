@@ -33,6 +33,7 @@ private:
     Looper& looper;                 //reference to a looper object
     TextButton playButton;
     TextButton recordButton;
+    TextButton saveButton;
 };
 
 #endif
