@@ -17,7 +17,7 @@
 
 #include "../../JuceLibraryCode/JuceHeader.h"
 #include "Looper.h"
-
+#define MAX_NUM_LOOPERS 2
 class Audio :   public MidiInputCallback,
                 public AudioIODeviceCallback
 {
@@ -31,7 +31,7 @@ public:
     /** Returns the audio device manager, don't keep a copy of it! */
     AudioDeviceManager& getAudioDeviceManager() { return audioDeviceManager; }
     
-    Looper& getLooper() { return looper; }
+    Looper& getLooper(int LooperNum); 
     
     void handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message) override;
     

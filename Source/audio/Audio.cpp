@@ -25,6 +25,23 @@ Audio::~Audio()
     audioDeviceManager.removeMidiInputCallback (String::empty, this);
 }
 
+Looper& Audio::getLooper(int LooperNum)
+{
+    LooperNum > MAX_NUM_LOOPERS ? LooperNum = MAX_NUM_LOOPERS : LooperNum = LooperNum;
+    
+    if (LooperNum == 1)
+        return looper;
+    
+    else if (LooperNum == 2)
+        return looper2;
+    
+    else
+        return looper;
+    
+    
+
+}
+
 
 void Audio::handleIncomingMidiMessage (MidiInput* source, const MidiMessage& message)
 {
@@ -55,7 +72,7 @@ void Audio::audioDeviceIOCallback (const float** inputChannelData,
     {
         float output = 0.f;
         
-        output = looper.processSample (*inL);
+        output = (looper.processSample (*inL) + looper2.processSample(*inL)) * 0.707;
         
         *outL = output;
         *outR = output;

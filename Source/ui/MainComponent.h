@@ -53,6 +53,7 @@ public:
 private:
     Audio& audio;
     LooperGui looperGui;
+    LooperGui looperGui2;
     
     
     //==============================================================================

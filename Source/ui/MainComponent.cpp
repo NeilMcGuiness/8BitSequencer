@@ -12,10 +12,12 @@
 //==============================================================================
 MainComponent::MainComponent (Audio& audio_)
  :  audio (audio_),
-    looperGui (audio_.getLooper())
+    looperGui (audio_.getLooper(1)),
+    looperGui2 (audio_.getLooper(2))
 {
     setSize (500, 400);
     addAndMakeVisible (looperGui);
+    addAndMakeVisible(looperGui2);
 }
 
 MainComponent::~MainComponent()
@@ -26,6 +28,7 @@ MainComponent::~MainComponent()
 void MainComponent::resized()
 {
     looperGui.setSize (getWidth(), 40);
+    looperGui2.setBounds(0, 100, getWidth(), 40);
 }
 
 //MenuBarCallbacks==============================================================
