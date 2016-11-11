@@ -47,6 +47,7 @@ public:
 private:
     AudioDeviceManager audioDeviceManager;
     Looper looper;
+    Looper looper2;
 };
 
 

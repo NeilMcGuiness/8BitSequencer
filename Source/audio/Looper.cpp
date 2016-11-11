@@ -60,7 +60,7 @@ float Looper::processSample (float input)
         
         //record
         if (recordState.get() == true)
-            audioSampleBuffer[bufferPosition] = input;
+            audioSampleBuffer[bufferPosition] += input;
         
         //increment and cycle the buffer counter
         ++bufferPosition;
