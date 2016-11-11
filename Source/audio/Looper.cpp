@@ -55,7 +55,7 @@ float Looper::processSample (float input)
         //play
         output = audioSampleBuffer[bufferPosition];
         //click 4 times each bufferLength
-        if ((bufferPosition % (bufferSize / 4)) == 0)
+        if ((bufferPosition % (bufferSize / 8)) == 0)
             output += 0.25f;
         
         //record

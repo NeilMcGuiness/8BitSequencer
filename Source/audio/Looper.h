@@ -59,7 +59,7 @@ private:
     Atomic<int> playState;
     
     //Audio data
-    static const int bufferSize = 88200; //constant
+    static const int bufferSize = 176400; //constant
     unsigned int bufferPosition;
     float audioSampleBuffer[bufferSize];
 };
