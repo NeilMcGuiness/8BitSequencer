@@ -28,6 +28,15 @@ LooperGui::LooperGui(Looper& looper_) : looper (looper_)
     saveButton.setColour(TextButton::buttonColourId, Colours::azure);
     addAndMakeVisible(&saveButton);
     saveButton.addListener(this);
+    
+    loadButton.setButtonText("Load");
+    loadButton.setColour(TextButton::buttonColourId, Colours::azure);
+    addAndMakeVisible(&loadButton);
+    loadButton.addListener(this);
+    
+    
+    
+   
 }
 
 void LooperGui::buttonClicked (Button* button)
@@ -62,12 +71,38 @@ void LooperGui::buttonClicked (Button* button)
             
             AlertWindow::showMessageBoxAsync (AlertWindow::WarningIcon,"Error", "Stop playback before trying to save", "OK", this);
         }
+        
+        
     }
+    
+    else if (button == &loadButton)
+        
+    {
+        if (looper.getPlayState() == false && looper.getRecordState() == false)
+            
+        {
+            looper.loadAudio();
+        }
+        
+        else
+            
+        {
+            
+            AlertWindow::showMessageBoxAsync (AlertWindow::WarningIcon,"Error", "Stop playback before trying to load", "OK", this);
+        }
+        
+        
+    }
+    
+    
+    
 }
 
 void LooperGui::resized()
 {
     playButton.setBounds (0, 0, getWidth()/2, getHeight()/2);
     recordButton.setBounds (playButton.getBounds().translated(getWidth()/2, 0));
-    saveButton.setBounds((getWidth() / 4) , getHeight()/2, getWidth()/2, getHeight()/2);
+    saveButton.setBounds((getWidth() / 6) , getHeight()/2, getWidth()/3, getHeight()/2);
+    loadButton.setBounds((getWidth() / 6) * 3 , getHeight()/2, getWidth()/3, getHeight()/2);
+
 }

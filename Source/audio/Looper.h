@@ -56,8 +56,12 @@ public:
     /**
      saves the audio into a File.
      */
-    
     void  saveAudio ();
+    
+    /** loads an audio file into the audioSampleBuffer to be played.
+     */
+    
+    void loadAudio ();
     
     
 

@@ -34,6 +34,7 @@ private:
     TextButton playButton;
     TextButton recordButton;
     TextButton saveButton;
+    TextButton loadButton;
 };
 
 #endif

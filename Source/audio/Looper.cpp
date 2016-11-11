@@ -96,4 +96,30 @@ void Looper::saveAudio()
             delete writer;
         }
     
-   }
+}
+
+void Looper::loadAudio ()
+
+{
+    AudioFormatManager formatManager; formatManager.registerBasicFormats();
+    
+    FileChooser chooser ("Please select the file you want to load...", File::getSpecialLocation (File::userHomeDirectory),formatManager.getWildcardForAllFormats());
+    
+    
+    if (chooser.browseForFileToOpen())
+    
+    {
+        File file (chooser.getResult());
+        AudioFormatReader* reader = formatManager.createReaderFor (file);
+        
+        if (reader != 0)
+        {
+            audioSampleBuffer.setSize (reader->numChannels, reader->lengthInSamples);
+//            bufferSize = reader->lengthInSamples;
+            
+            reader->read (&audioSampleBuffer, 0, reader->lengthInSamples, 0, true, false);
+            delete reader;
+        }
+    }
+}
+
