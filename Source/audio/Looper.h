@@ -61,7 +61,7 @@ private:
     //Audio data
     static const int bufferSize = 176400; //constant
     unsigned int bufferPosition;
-    float audioSampleBuffer[bufferSize];
+    AudioSampleBuffer audioSampleBuffer;
 };
 
 #endif /* H_Looper */
