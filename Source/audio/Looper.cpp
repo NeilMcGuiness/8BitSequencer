@@ -78,3 +78,22 @@ float Looper::processSample (float input)
     }
     return output;
 }
+
+void Looper::saveAudio()
+{
+    // Check that we're not still playing.
+  
+        FileChooser chooser ("Please select a file...", File::getSpecialLocation (File::userDesktopDirectory), "*.wav");
+        
+        if (chooser.browseForFileToSave(true))
+        {
+            File file (chooser.getResult().withFileExtension (".wav"));
+            OutputStream* outStream = file.createOutputStream();
+            WavAudioFormat wavFormat;
+            AudioFormatWriter* writer = wavFormat.
+            createWriterFor (outStream, 44100, 1, 16, NULL, 0);
+            writer->writeFromAudioSampleBuffer(audioSampleBuffer, 0, audioSampleBuffer.getNumSamples());
+            delete writer;
+        }
+    
+   }

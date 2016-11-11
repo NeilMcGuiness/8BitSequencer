@@ -52,6 +52,14 @@ public:
      Processes the audio sample by sample.
      */
     float processSample (float input);
+    
+    /**
+     saves the audio into a File.
+     */
+    
+    void  saveAudio ();
+    
+    
 
 private:  
     //Shared data
@@ -63,5 +71,7 @@ private:
     unsigned int bufferPosition;
     AudioSampleBuffer audioSampleBuffer;
 };
+
+
 
 #endif /* H_Looper */
