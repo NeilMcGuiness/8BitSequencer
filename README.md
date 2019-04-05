@@ -1,2 +1,4 @@
-##JuceBasicLooper
-Starting point code for a basic looper applicaiton
+## The 8-Bit Sequencer
+The 8-Bit Sequencer is a virtual sequencer I developed while at university. I coded it in C ++ using the Juce framework - a set of libraries and objects that aid the creation of audio and graphic applications. The sequencer is based on the graphic and musical synthesis engines found in retro 8-bit video games. Most of the Graphical User Interface (GUI) is based on sprites - still images sequenced like stop motion to simulate movement, this is the same method that 8-bit games would use to animate their games. The sequencer has 2 polyphonic synths with a choice of waveform and LFO modulations and 1 8-bit drum machine. You can record up to 4 bars of a layered sequence to playback and transpose.
+
+To dowload the app to play with and see instructions on how to use it, please visit its page on my website - https://www.newresmedia.com/other-projects-code
